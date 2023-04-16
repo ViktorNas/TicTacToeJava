@@ -14,22 +14,16 @@ import javax.swing.Timer;
 public class GraphicsPanel extends JPanel implements ActionListener
 {
 	public int width; public int height;
-	public int spaces[] = new int[9];
+	public static int spaces[] = new int[9];
 	
 	public GraphicsPanel(int width, int height)
 	{
 		this.width = width; this.height = height;
 		
-		this.setPreferredSize(new Dimension(width + 1, height + 1));
+		this.setPreferredSize(new Dimension(width, height));
 		this.setBackground(Color.BLACK);
 		
-		for(int space : this.spaces) {space = 0;}
-		
-		this.spaces[6] = 1;
-		this.spaces[4] = 2;
-		this.spaces[2] = 1;
-		this.spaces[8] = 2;
-		this.spaces[0] = 1;
+		for(int space : spaces) {space = 0;}
 		
 		Timer clock = new Timer(250, this);
 		clock.start();
@@ -51,10 +45,12 @@ public class GraphicsPanel extends JPanel implements ActionListener
 		
 		for(int i = 0; i < 9; i++)
 		{
+			g2D.setColor(Color.GREEN);
 			g2D.drawRect(w_scale * column_index, h_scale * row_index, w_scale, h_scale);
 			
-			if(this.spaces[space_index] == 1)
+			if(spaces[space_index] == 1)
 			{
+				g2D.setColor(Color.BLUE);
 				g2D.setStroke(new BasicStroke(5));
 				g2D.drawLine(w_scale * column_index, h_scale * row_index,
 						w_scale * (column_index + 1), h_scale * (row_index + 1));
@@ -62,14 +58,15 @@ public class GraphicsPanel extends JPanel implements ActionListener
 						w_scale * column_index, h_scale * (row_index + 1));
 				g2D.setStroke(new BasicStroke(1));
 			}
-			else if(this.spaces[space_index] == 2)
+			else if(spaces[space_index] == 2)
 			{
+				g2D.setColor(Color.RED);
 				g2D.setStroke(new BasicStroke(5));
 				g2D.drawOval(w_scale * column_index, h_scale * row_index, w_scale, h_scale);
 				g2D.setStroke(new BasicStroke(1));
 			}
-			space_index++;
 			
+			space_index++;
 			column_index++;
 			if(column_index >= 3)
 			{

@@ -1,6 +1,7 @@
 package net.viktornas.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 
@@ -13,11 +14,13 @@ public class GUI extends JFrame
 		
 		this.setTitle(title);
 		
-		GraphicsPanel graphicsPanel = new GraphicsPanel(600, 600);
+		GraphicsPanel graphicsPanel = new GraphicsPanel(200, 200);
+		OptionsPanel optionsPanel = new OptionsPanel(150, 200);
 		
 		this.setLayout(new BorderLayout(5, 5));
 		
 		this.add(graphicsPanel, BorderLayout.CENTER);
+		this.add(optionsPanel, BorderLayout.WEST);
 		
 		this.pack();
 		
