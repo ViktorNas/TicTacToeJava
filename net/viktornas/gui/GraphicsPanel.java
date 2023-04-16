@@ -7,7 +7,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -22,8 +21,6 @@ public class GraphicsPanel extends JPanel implements ActionListener
 		
 		this.setPreferredSize(new Dimension(width, height));
 		this.setBackground(Color.BLACK);
-		
-		for(int space : spaces) {space = 0;}
 		
 		Timer clock = new Timer(250, this);
 		clock.start();
@@ -53,9 +50,9 @@ public class GraphicsPanel extends JPanel implements ActionListener
 				g2D.setColor(Color.BLUE);
 				g2D.setStroke(new BasicStroke(5));
 				g2D.drawLine(w_scale * column_index, h_scale * row_index,
-						w_scale * (column_index + 1), h_scale * (row_index + 1));
+					w_scale * (column_index + 1), h_scale * (row_index + 1));
 				g2D.drawLine(w_scale * (column_index + 1), h_scale * row_index,
-						w_scale * column_index, h_scale * (row_index + 1));
+					w_scale * column_index, h_scale * (row_index + 1));
 				g2D.setStroke(new BasicStroke(1));
 			}
 			else if(spaces[space_index] == 2)

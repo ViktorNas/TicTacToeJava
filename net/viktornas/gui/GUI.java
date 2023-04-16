@@ -1,15 +1,13 @@
 package net.viktornas.gui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-
 import javax.swing.JFrame;
 
 public class GUI extends JFrame
 {
 	public GUI(String title)
 	{
-		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
 		this.setTitle(title);
